@@ -1,0 +1,9 @@
+D:/User/Desktop/OpenCV_Diplom/server_program/build/CMakeFiles/Experimental.dir
+D:/User/Desktop/OpenCV_Diplom/server_program/build/CMakeFiles/Nightly.dir
+D:/User/Desktop/OpenCV_Diplom/server_program/build/CMakeFiles/Continuous.dir
+D:/User/Desktop/OpenCV_Diplom/server_program/build/CMakeFiles/NightlyMemoryCheck.dir
+D:/User/Desktop/OpenCV_Diplom/server_program/build/CMakeFiles/server_program.dir
+D:/User/Desktop/OpenCV_Diplom/server_program/build/CMakeFiles/PACKAGE.dir
+D:/User/Desktop/OpenCV_Diplom/server_program/build/CMakeFiles/RUN_TESTS.dir
+D:/User/Desktop/OpenCV_Diplom/server_program/build/CMakeFiles/ALL_BUILD.dir
+D:/User/Desktop/OpenCV_Diplom/server_program/build/CMakeFiles/ZERO_CHECK.dir

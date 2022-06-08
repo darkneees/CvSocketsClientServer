@@ -1,0 +1,10 @@
+^D:\USER\DESKTOP\OPENCV_DIPLOM\CLIENT_PROGRAM\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/User/Desktop/OpenCV_Diplom/client_program -BD:/User/Desktop/OpenCV_Diplom/client_program/build --check-stamp-file D:/User/Desktop/OpenCV_Diplom/client_program/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
