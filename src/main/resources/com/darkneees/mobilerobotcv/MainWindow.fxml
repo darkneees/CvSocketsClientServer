@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" stylesheets="@CSS/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.darkneees.mobilerobotcv.controllers.MainWindowController">
+   <ImageView fx:id="ImageCameraView" fitHeight="768.0" fitWidth="1024.0" pickOnBounds="true" preserveRatio="true">
+      <Image url="@Assets/background.png" />
+   </ImageView>
+   <GridPane alignment="CENTER" prefHeight="600.0" prefWidth="767.0">
+      <columnConstraints>
+         <ColumnConstraints maxWidth="424.0" minWidth="10.0" prefWidth="198.93328857421875" />
+         <ColumnConstraints maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="525.0667114257812" />
+         <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="300.0" />
+      </columnConstraints>
+      <rowConstraints>
+         <RowConstraints minHeight="10.0" />
+         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         <RowConstraints minHeight="10.0" prefHeight="180.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+      <StackPane>
+         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff82" height="250.0" stroke="#ffffff82" strokeType="INSIDE" styleClass="RectangleDraw" width="200.0" StackPane.alignment="TOP_LEFT" />
+         <VBox StackPane.alignment="TOP_LEFT">
+            <ListView fx:id="ListPoints" maxHeight="200.0" maxWidth="160.0" styleClass="ListPoints" VBox.vgrow="ALWAYS" />
+            <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
+               <Button fx:id="DeletePointButton" alignment="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="120.0" styleClass="DeletePoint" text="Удалить точку" textFill="WHITE">
+                  <font>
+                     <Font size="14.0" />
+                  </font>
+               </Button>
+            </HBox>
+         </VBox>
+      </StackPane>
+      <Button fx:id="MenuButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="32.0" prefWidth="32.0" styleClass="ButtonMenu" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
+         <GridPane.margin>
+            <Insets right="20.0" top="20.0" />
+         </GridPane.margin>
+      </Button>
+      <VBox alignment="CENTER_RIGHT" GridPane.columnIndex="2" GridPane.rowIndex="2">
+         <GridPane.margin>
+            <Insets right="40.0" />
+         </GridPane.margin>
+         <StackPane alignment="TOP_CENTER" maxWidth="130.0" prefWidth="130.0">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff82" height="40.0" stroke="#ffffff82" strokeType="INSIDE" styleClass="RectangleDraw" width="130.0" StackPane.alignment="TOP_CENTER" />
+            <HBox alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" StackPane.alignment="CENTER_LEFT">
+               <Button fx:id="ServoLeftButton" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" HBox.hgrow="ALWAYS">
+                  <styleClass>
+                     <String fx:value="ButtonNavigate" />
+                     <String fx:value="ButtonLeft" />
+                  </styleClass>
+               </Button>
+               <Region HBox.hgrow="ALWAYS" />
+               <Button fx:id="ServoRightButton" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" HBox.hgrow="ALWAYS">
+                  <styleClass>
+                     <String fx:value="ButtonNavigate" />
+                     <String fx:value="ButtonRight" />
+                  </styleClass>
+               </Button>
+            </HBox>
+         </StackPane>
+         <StackPane alignment="TOP_CENTER" maxWidth="130.0" prefWidth="130.0">
+            <VBox.margin>
+               <Insets top="20.0" />
+            </VBox.margin>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff82" height="130.0" stroke="#ffffff82" strokeType="INSIDE" styleClass="RectangleDraw" width="130.0" StackPane.alignment="TOP_CENTER" />
+            <VBox alignment="TOP_CENTER">
+               <HBox alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS">
+                  <Button fx:id="RobotUpLeftButton" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" HBox.hgrow="ALWAYS">
+                     <styleClass>
+                        <String fx:value="ButtonNavigate" />
+                        <String fx:value="ButtonLeftRotated" />
+                     </styleClass>
+                  </Button>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Button fx:id="RobotForwardButton" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" HBox.hgrow="ALWAYS">
+                     <styleClass>
+                        <String fx:value="ButtonNavigate" />
+                        <String fx:value="ButtonUp" />
+                     </styleClass>
+                  </Button>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Button fx:id="RobotRightUpButton" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" HBox.hgrow="ALWAYS">
+                     <styleClass>
+                        <String fx:value="ButtonNavigate" />
+                        <String fx:value="ButtonRigthRotated" />
+                     </styleClass>
+                  </Button>
+               </HBox>
+               <Region VBox.vgrow="ALWAYS" />
+               <HBox alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS">
+                  <Button fx:id="RobotLeftButton" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" HBox.hgrow="ALWAYS">
+                     <styleClass>
+                        <String fx:value="ButtonNavigate" />
+                        <String fx:value="ButtonLeft" />
+                     </styleClass>
+                  </Button>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Button fx:id="RobotRightButton" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" HBox.hgrow="ALWAYS">
+                     <styleClass>
+                        <String fx:value="ButtonNavigate" />
+                        <String fx:value="ButtonRight" />
+                     </styleClass>
+                  </Button>
+               </HBox>
+               <Region VBox.vgrow="ALWAYS" />
+               <HBox alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS">
+                  <Button fx:id="RobotLeftBackButton" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" HBox.hgrow="ALWAYS">
+                     <styleClass>
+                        <String fx:value="ButtonNavigate" />
+                        <String fx:value="ButtonLeftRotatedDown" />
+                     </styleClass>
+                  </Button>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Button fx:id="RobotBackButton" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" HBox.hgrow="ALWAYS">
+                     <styleClass>
+                        <String fx:value="ButtonNavigate" />
+                        <String fx:value="ButtonDown" />
+                     </styleClass>
+                  </Button>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Button fx:id="RobotRightBackButton" mnemonicParsing="false" prefHeight="36.0" prefWidth="36.0" HBox.hgrow="ALWAYS">
+                     <styleClass>
+                        <String fx:value="ButtonNavigate" />
+                        <String fx:value="ButtonRigthRotatedDown" />
+                     </styleClass>
+                  </Button>
+               </HBox>
+            </VBox>
+         </StackPane>
+      </VBox>
+   </GridPane>
+</StackPane>

@@ -1,0 +1,83 @@
+.ListPoints {
+    -fx-background-color: transparent;
+}
+
+.DeletePoint {
+    -fx-background-color: #8b0000;
+    -fx-background-radius: 20;
+    -fx-border-insets: 0;
+}
+
+.DeletePoint:hover {
+    -fx-background-color: red;
+}
+
+.ErrorLine {
+    -fx-background-color: black;
+    -fx-opacity: 0.7;
+    -fx-text-fill: red;
+}
+
+.ButtonMenu {
+    -fx-opacity: 0.75;
+    -fx-background-color: #a6a6a6;
+    -fx-background-image: url('../Assets/icon-menu.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;
+}
+
+.ButtonMenu:hover {
+    -fx-background-color: white;
+}
+
+.ButtonNavigate {
+    -fx-background-color: transparent;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;
+}
+
+.ButtonLeft {
+    -fx-background-image: url('../Assets/left.png');
+    
+}
+
+.ButtonRight {
+    -fx-background-image: url('../Assets/right.png');
+}
+
+.ButtonUp {
+    -fx-background-image: url('../Assets/up.png');
+}
+
+.ButtonDown {
+    -fx-background-image: url('../Assets/down.png');
+}
+
+.ButtonLeftRotated {
+    -fx-background-image: url('../Assets/left.png');
+    -fx-rotate: 45;
+}
+
+.ButtonRigthRotated {
+    -fx-background-image: url('../Assets/right.png');
+    -fx-rotate: -45;
+}
+
+.ButtonLeftRotatedDown {
+    -fx-background-image: url('../Assets/left.png');
+    -fx-rotate: -45;
+}
+
+.ButtonRigthRotatedDown {
+    -fx-background-image: url('../Assets/right.png');
+    -fx-rotate: 45;
+}
+
+.RectangleDraw {
+    -fx-arc-height: 40;
+    -fx-arc-width: 40;
+}
+
+.RectangleDraw:hover {
+    -fx-background-color: #949494;
+}
