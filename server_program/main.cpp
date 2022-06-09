@@ -16,9 +16,22 @@ using namespace cv;
 
 #pragma comment(lib, "ws2_32.lib");
 
+void detectAndDisplay(Mat frame);
+CascadeClassifier body_cascade;
+
+
 int main(int argc, char *argv[])
 {
 
+    String body_cascade_name = samples::findFile("D:\\User\\Desktop\\OpenCV_Diplom\\server_program\\haarcascade_frontalface_alt.xml");
+
+    // Загрузка каскадов
+
+    if(!body_cascade.load(body_cascade_name)) {
+        printf("[Server] Error loading file cascade\n");
+        return -1;
+    }
+    printf("Cascade: %s", body_cascade);
 
     VideoCapture cap(0);
     if(!cap.isOpened()) {
@@ -89,7 +102,10 @@ int main(int argc, char *argv[])
 
         startWindowThread();
         while(true) {
-            cap >> frame;
+            cap.read(frame);
+            
+            detectAndDisplay(frame);
+
             frame = (frame.reshape(0,1));
             int imgSize = frame.total()*frame.elemSize();
 
@@ -103,15 +119,17 @@ int main(int argc, char *argv[])
                 printf("Error get data\n");
                 break;
             }
+
             if(int i = send(new_socket, (const char*)frame.data, imgSize, 0) == SOCKET_ERROR) {
-                printf("Error get data\n");
+                printf("Error get data %d\n", WSAGetLastError());
                 break;
             }
-            printf("Picture sended: %d\n", i);
-            std::this_thread::sleep_for (std::chrono::microseconds(30));
+            //printf("Picture sended: %s\n", frame.data);
+            // std::this_thread::sleep_for (std::chrono::microseconds(30));
         }
         
     }
+    
 
     getchar();
 
@@ -121,4 +139,26 @@ int main(int argc, char *argv[])
 
     return 0;
 
+}
+
+
+void detectAndDisplay(Mat frame) {
+
+    Mat gray;
+    cvtColor(frame, gray, COLOR_BGR2GRAY);
+    equalizeHist(gray, gray);
+
+    // Detect body
+    std::vector<Rect> bodies;
+    body_cascade.detectMultiScale(gray, bodies, 1.4, 3, CASCADE_SCALE_IMAGE, Size(30, 30));
+
+    printf("Bodies Size: %d", bodies.size());
+
+    for(size_t i = 0; i < bodies.size(); i++){
+        Point center( bodies[i].x + bodies[i].width/2, bodies[i].y + bodies[i].height/2 );
+        ellipse(frame, center, Size( bodies[i].width/2, bodies[i].height/2 ), 0, 0, 360, Scalar( 0, 0, 255 ), 4);
+        double distance = bodies[i].height / 24 * 25.6;
+
+        printf("Distance: %lf\n", distance);
+    }
 }

@@ -84,6 +84,9 @@ int main(int argc, char *argv[])
                 printf("Error get data\n");
                 break;
             }
+            printf("Pixels: %s", frame_data);
+            
+
                         
             Mat img(Size(WIDTH, HEIGHT), CV_8UC3, frame_data);
             imshow("Window", img);
