@@ -15,7 +15,7 @@ using namespace std;
 #pragma comment(lib, "ws2_32.lib");
 
 JNIEXPORT jbyteArray JNICALL Java_com_darkneees_mobilerobotcv_nativeLib_ImageLib_helloNative
-  (JNIEnv *env, jobject)
+  (JNIEnv *env, jobject thisObject)
 {
 
     WSADATA wsa; // Структура содержащая данные подключения
@@ -81,8 +81,18 @@ JNIEXPORT jbyteArray JNICALL Java_com_darkneees_mobilerobotcv_nativeLib_ImageLib
             jbyteArray j_version_array = env->NewByteArray(data);
             env->SetByteArrayRegion(j_version_array, 0, data , j_version);
 
-            return j_version_array;
+            jclass cls_awesome_lib = env -> GetObjectClass(thisObject);
+            jmethodID mid_compare = env->GetMethodID(
+                    cls_awesome_lib,
+                    "setImageCameraView",
+                    "([B)V"
+                );
 
+            env->CallVoidMethod(
+                    thisObject,
+                    mid_compare,
+                    j_version_array
+                );
         }
     }
 

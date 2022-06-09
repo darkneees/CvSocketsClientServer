@@ -42,18 +42,20 @@ public class MainWindowController {
     private Button RobotRightBackButton;
 
     @FXML
-    public void initialize() throws IOException {
+    public void initialize() {
 
-        //Client client = new Client(ImageCameraView);
-        //client.connect();
-        //client.start();
+        DeletePointButton.setOnAction(event -> System.out.println("Clicked"));
 
-        ImageLib imageLib = new ImageLib();
-        byte[] pixels = imageLib.helloNative();
 
+
+        ImageLib imageLib = new ImageLib(this);
+        Thread t = new Thread(imageLib::helloNative);
+        t.start();
+
+    }
+
+    public void setImageCameraView(byte[] pixels){
         BufferedImage bufferedImage = new BufferedImage(640, 480, BufferedImage.TYPE_INT_RGB);
-
-
         final int pixelLength = 3;
         for (int pixel = 0, row = 0, col = 0; pixel + 2 < pixels.length; pixel += pixelLength) {
             int argb = 0;
@@ -69,7 +71,5 @@ public class MainWindowController {
             }
         }
         ImageCameraView.setImage(SwingFXUtils.toFXImage(bufferedImage, null));
-        DeletePointButton.setOnAction(event -> System.out.println("Clicked"));
-
     }
 }

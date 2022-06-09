@@ -13,7 +13,7 @@ extern "C" {
  * Signature: ()[B
  */
 JNIEXPORT jbyteArray JNICALL Java_com_darkneees_mobilerobotcv_nativeLib_ImageLib_helloNative
-  (JNIEnv *env, jobject);
+  (JNIEnv *env, jobject thisObject);
 
 #ifdef __cplusplus
 }
